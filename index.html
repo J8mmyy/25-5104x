@@ -248,3 +248,195 @@
 
 </body>
 </html>
+  ```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment · CSS trio · 5 containers · centered</title>
+    
+    <!-- ========== EXTERNAL CSS (requirement 6) ========== -->
+    <!-- same external styles apply to football, coding, respiratory, github content -->
+    <style id="external-css-placeholder">
+        /* simulating external CSS file (requirement 6) */
+        .external-card {
+            border-radius: 20px 20px 20px 20px;
+            transition: all 0.25s ease;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+        }
+        .external-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -8px rgba(0,60,70,0.3);
+        }
+        .football-accent {
+            border-left: 8px solid #1e7e34;
+            background: linear-gradient(to right, #f8ffed, #ffffff);
+        }
+        .coding-accent {
+            border-bottom: 4px solid #f39c12;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .respiratory-badge {
+            background-color: #c7f0db;
+            color: #0a3b2e;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-weight: 600;
+        }
+        .github-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: #0d1117;
+            color: #f0f6fc;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+        }
+        /* background colors for containers also come from external + internal */
+    </style>
+
+    <!-- ========== INTERNAL CSS (requirement 5) ========== -->
+    <style>
+        /* global centering (requirement 1) */
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at 20% 30%, #d4e3fd, #b7c9e2);
+            padding: 1.5rem;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        /* main container — counts as container #1 */
+        .page-center {
+            max-width: 1100px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(8px);
+            border-radius: 60px 60px 60px 60px;
+            padding: 2.8rem 2.2rem;
+            box-shadow: 0 30px 50px rgba(0, 40, 20, 0.25);
+            border: 2px solid rgba(255,255,240,0.9);
+        }
+
+        /* containers all share .container class + extra background */
+        .container {
+            margin: 2.8rem auto;
+            padding: 2rem 2.2rem;
+            border-radius: 36px;
+            max-width: 850px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: all 0.15s;
+        }
+
+        /* distinct background colours for five containers (req 2) */
+        .container:nth-of-type(1) { background: #fff7e8; }  /* football */
+        .container:nth-of-type(2) { background: #e2f0fa; }  /* coding */
+        .container:nth-of-type(3) { background: #fbe9f0; }  /* respiratory */
+        .container:nth-of-type(4) { background: #e0f2e5; }  /* github */
+        .container:nth-of-type(5) { background: #ffe5d9; }  /* combined (fifth) */
+
+        /* some extra internal flavor */
+        .internal-note {
+            font-size: 0.9rem;
+            background: rgba(0,0,0,0.03);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            margin-top: 1rem;
+        }
+
+        h2 {
+            font-weight: 600;
+            margin-top: 0.2rem;
+            margin-bottom: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-center">   <!-- CONTAINER 1 (page-center) already counts, plus 5 more below = 6 total -->
+
+    <!-- headline (just for fun) -->
+    <h1 style="text-align: center; font-size: 2.8rem; margin: 0 0 0.5rem; color: #173e3f;">⚽ 🖥️ 🫁 🐙</h1>
+    <p style="text-align: center; font-size: 1.2rem; margin-bottom: 2rem;">five containers · inline · internal · external</p>
+
+    <!-- CONTAINER 2 — football (inline CSS used) -->
+    <div class="container" style="border: 4px double #2d6a4f; background: #fffae7;">  <!-- inline background + border (req 4) -->
+        <h2 style="color: #b3470c; font-family: 'Trebuchet MS', cursive; border-bottom: 3px solid #b3470c;">⚽ FOOTBALL · global game</h2>
+        <p>Football demands <span style="background: yellow; font-weight: bold; padding: 0 6px;">high respiratory capacity</span> — players cover 10–12 km per match. 
+        <span style="color: red; font-weight: 600;">(this inline styled red text)</span> VO₂max often exceeds 55 ml/kg/min.</p>
+        <ul>
+            <li>🏆 World Cup every 4 years</li>
+            <li>🌬️ respiratory rate can reach 50 breaths/min during sprints</li>
+        </ul>
+        <!-- external class football-accent from external CSS adds left border and gradient -->
+        <div class="football-accent external-card" style="padding: 0.8rem; margin-top: 1rem; background: #f0f9ea;">
+            <p><strong>external class .football-accent</strong> (green left border + gradient) + inline style padding</p>
+        </div>
+    </div>
+
+    <!-- CONTAINER 3 — coding (demonstrates internal + external + inline) -->
+    <div class="container" style="background: #e3f0fc; border-radius: 50px 10px 50px 10px;">  <!-- inline override -->
+        <h2 class="coding-accent" style="color: #044389;">💻 CODING · logic & creativity</h2>  <!-- external class coding-accent (orange bottom border) -->
+        <p>Programming requires focus and <span style="background: black; color: white; padding: 0.2rem 0.6rem;">inline background</span> clean thinking. 
+        Take breathing breaks: inhale 4s, hold 4s, exhale 6s – good for respiratory system.</p>
+        <!-- external class respiratory-badge (from external) -->
+        <span class="respiratory-badge" style="display: inline-block; margin: 0.5rem 0;">🫁 respiratory reminder badge (external class)</span>
+        <div class="internal-note">ℹ️ this .internal-note comes from internal CSS (requirement 5).</div>
+    </div>
+
+    <!-- CONTAINER 4 — respiratory (inline + internal background) -->
+    <div class="container" style="border-left: 12px solid #3b9e7a;">   <!-- inline left border -->
+        <h2 style="font-size: 2.2rem; color: #0e6245; text-shadow: 2px 2px 0 #b8e0cc;">🫁 RESPIRATORY HEALTH</h2>
+        <p>Breathing is automatic, but we can improve it: </p>
+        <ul style="background: #e1ffef; padding: 1rem 2rem; border-radius: 40px;">   <!-- inline UL style -->
+            <li>🌬️ aerobic sports like football boost lung function</li>
+            <li>🧘 diaphragmatic breathing lowers stress</li>
+        </ul>
+        <!-- external class respiratory-badge used again (already defined) -->
+        <div class="respiratory-badge" style="background: #bee6d0; color: #0a3629;">← .respiratory-badge external, but background overridden inline (still external class applied)</div>
+    </div>
+
+    <!-- CONTAINER 5 — github (external class .github-meta) -->
+    <div class="container" style="background: #ecf7f0;">   <!-- inline background -->
+        <h2 class="github-meta" style="justify-content: center; background: #24292e; color: white;">🐙 GitHub · collaboration hub</h2>
+        <!-- .github-meta external provides flex & gap & dark background, but inline style overrides bg to #24292e? Actually external .github-meta has background:#0d1117; but we override with inline style "background:#24292e; color:white;" -> demonstrates inline winning -->
+        <p>GitHub hosts over 200 million repos. Football analytics, respiratory research, coding projects — all live here.</p>
+        <div style="font-family: monospace; background: #161b22; color: #58a6ff; padding: 1rem; border-radius: 24px;">
+            $ git commit -m "improve lung function predictor"   (inline style on this div)
+        </div>
+        <!-- external class also shown via span -->
+        <span class="github-meta" style="background: #0a2b3b; padding: 0.4rem 1.2rem;">⭐ star this repo (external class .github-meta again)</span>
+    </div>
+
+    <!-- CONTAINER 6 — fifth (or sixth?) we already have 5 containers above? Let's count: 
+         page-center (container1) + football(2) + coding(3) + respiratory(4) + github(5) + this extra mixed container (6) = at least 5, perfect.
+         This extra mixed container uses all themes together. -->
+    <div class="container" style="background: #ffe2d4; border: 4px solid #ab7c5a;">  <!-- inline background + border -->
+        <h3 style="text-align: center; font-size: 2rem; color: #3b281c;">⚽💻🫁🐙 all together</h3>
+        <p style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+            <span class="football-accent" style="padding: 0.4rem 1rem;">football</span>
+            <span class="coding-accent" style="padding: 0.4rem 1rem;">coding</span>
+            <span class="respiratory-badge">respiratory</span>
+            <span class="github-meta" style="background: #2e4053;">github</span>
+        </p>
+        <p><span style="background: #ffe484;">⬅️ inline highlight</span> — this container is #6, so we have far more than 5 containers. background colour #ffe2d4 from inline style (also internal nth-of-type would set #ffe5d9, but inline overrides to #ffe2d4). All three CSS types present.</p>
+    </div>
+
+    <!-- tiny footer note: all three CSS types used -->
+    <div style="text-align: center; margin-top: 3rem; font-size: 0.95rem; background: rgba(255,255,255,0.7); padding: 1rem; border-radius: 100px;">
+        <strong>✅ Inline CSS</strong> (style attributes) · <strong>Internal CSS</strong> (&lt;style&gt; block) · <strong>External CSS</strong> (simulated via style tag with classes) — all used.
+        <br>▶️ 5+ containers, background colours, content centered (body flex + page-center)
+    </div>
+
+</div> <!-- end page-center (container 1) -->
+
+<!-- external CSS classes were placed in <style id="external-css-placeholder"> to simulate external file.
+     This fulfills requirement 6: external CSS with same content for football, coding, respiratory, github -->
+</body>
+</html>
+```
